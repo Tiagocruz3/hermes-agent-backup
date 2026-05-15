@@ -18,11 +18,11 @@ echo "📦 Step 1/12: System dependencies..."
 sudo apt-get update
 sudo apt-get install -y git curl wget python3 python3-pip python3-venv \
     nodejs npm build-essential pkg-config libssl-dev zlib1g-dev \
-    libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev \
-    libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev \
+    libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses-dev \
+    xz-utils tk-dev libffi-dev liblzma-dev \
     python3-openssl ffmpeg chromium-browser fonts-liberation \
-    libnss3 libatk-bridge2.0-0 libxss1 libgtk-3-0 libasound2 \
-    libxtst6 libappindicator3-1 systemd dbus-user-session
+    libnss3 libatk-bridge2.0-0t64 libxss1 libgtk-3-0t64 libasound2t64 \
+    libxtst6 libappindicator3-1 systemd dbus-user-session || true
 
 echo "📦 Step 1b: Installing pnpm..."
 npm install -g pnpm
