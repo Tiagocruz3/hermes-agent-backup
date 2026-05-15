@@ -1,0 +1,29 @@
+# Large/binary files
+*.db
+*.db-shm
+*.db-wal
+*.lock
+audio_cache/
+image_cache/
+cache/
+logs/
+sessions/
+venv/
+node_modules/
+
+# Sensitive (keep template only)
+.env
+telegram.env
+auth.json
+
+# Build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db

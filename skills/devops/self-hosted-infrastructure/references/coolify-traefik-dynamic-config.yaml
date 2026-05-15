@@ -1,0 +1,61 @@
+# Coolify v4 Traefik Dynamic Config Template
+# Place in /data/coolify/proxy/dynamic/services.yaml
+# Restart Traefik: docker restart coolify-proxy
+#
+# This is the most reliable routing method for subdomains in Coolify v4.
+# Docker labels on standalone containers are often not picked up.
+
+http:
+  routers:
+    searxng-router:
+      entryPoints:
+        - https
+      service: searxng-service
+      rule: Host(`search.YOURDOMAIN.com`)
+      tls:
+        certResolver: letsencrypt
+
+    scraper-router:
+      entryPoints:
+        - https
+      service: scraper-service
+      rule: Host(`scrape.YOURDOMAIN.com`)
+      tls:
+        certResolver: letsencrypt
+
+    db-router:
+      entryPoints:
+        - https
+      service: db-service
+      rule: Host(`db.YOURDOMAIN.com`)
+      tls:
+        certResolver: letsencrypt
+
+    api-router:
+      entryPoints:
+        - https
+      service: api-service
+      rule: Host(`api.YOURDOMAIN.com`)
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    searxng-service:
+      loadBalancer:
+        servers:
+          - url: "http://searxng:8080"
+
+    scraper-service:
+      loadBalancer:
+        servers:
+          - url: "http://scraper:11235"
+
+    db-service:
+      loadBalancer:
+        servers:
+          - url: "http://supabase-studio:3000"
+
+    api-service:
+      loadBalancer:
+        servers:
+          - url: "http://api-service:3000"

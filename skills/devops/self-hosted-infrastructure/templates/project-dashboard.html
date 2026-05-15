@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainstorm Nodes - Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 2rem;
+            border-bottom: 1px solid #333;
+        }
+        .header h1 {
+            font-size: 2rem;
+            background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header p {
+            color: #888;
+            margin-top: 0.5rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .project-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #333;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+        }
+        .project-card.wpi { border-left: 4px solid #00d4ff; }
+        .project-card.saas { border-left: 4px solid #7b2cbf; }
+        .project-card.default { border-left: 4px solid #2ecc71; }
+        .project-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .project-db {
+            color: #888;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        .project-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .project-links a {
+            color: #00d4ff;
+            text-decoration: none;
+            padding: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        .project-links a:hover {
+            background: rgba(0, 212, 255, 0.2);
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .status-active {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+        }
+        .services-section {
+            margin-top: 3rem;
+        }
+        .services-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .service-card {
+            background: #1a1a2e;
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid #333;
+        }
+        .service-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .service-card a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .note {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            color: #ffc107;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Brainstorm Nodes</h1>
+        <p>Self-hosted infrastructure dashboard</p>
+    </div>
+    
+    <div class="container">
+        <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Projects</h2>
+        <p style="color: #888;">All projects use the same Studio — switch databases from the dropdown</p>
+        
+        <div class="projects-grid">
+            <div class="project-card wpi">
+                <span class="status-badge status-active">Active</span>
+                <div class="project-name">WPI</div>
+                <div class="project-db">Database: wpi</div>
+                <div class="project-links">
+                    <a href="https://db.brainstormnodes.org" target="_blank">Open Studio →</a>
+                    <a href="postgresql://postgres:brainstormnodes2026db@195.35.20.80:5433/wpi">Connection String</a>
+                </div>
+                <div class="note">Switch to "wpi" database in Studio dropdown</div>
+            </div>
+            
+            <div class="project-card saas">
+                <span class="status-badge status-active">Active</span>
+                <div class="project-name">SAAS Coder</div>
+                <div class="project-db">Database: saas_coder</div>
+                <div class="project-links">
+                    <a href="https://db.brainstormnodes.org" target="_blank">Open Studio →</a>
+                    <a href="postgresql://postgres:brainstormnodes2026db@195.35.20.80:5433/saas_coder">Connection String</a>
+                </div>
+                <div class="note">Switch to "saas_coder" database in Studio dropdown</div>
+            </div>
+            
+            <div class="project-card default">
+                <span class="status-badge status-active">Active</span>
+                <div class="project-name">Default</div>
+                <div class="project-db">Database: postgres</div>
+                <div class="project-links">
+                    <a href="https://db.brainstormnodes.org" target="_blank">Open Studio →</a>
+                    <a href="postgresql://postgres:brainstormnodes2026db@195.35.20.80:5433/postgres">Connection String</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="services-section">
+            <h2>Infrastructure Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🔍 Search</h3>
+                    <a href="https://search.brainstormnodes.org" target="_blank">search.brainstormnodes.org</a>
+                </div>
+                <div class="service-card">
+                    <h3>🕷️ Scraper</h3>
+                    <a href="https://scrape.brainstormnodes.org" target="_blank">scrape.brainstormnodes.org</a>
+                </div>
+                <div class="service-card">
+                    <h3>⚡ Edge Functions</h3>
+                    <a href="https://functions.brainstormnodes.org" target="_blank">functions.brainstormnodes.org</a>
+                </div>
+                <div class="service-card">
+                    <h3>🗄️ Database Studio</h3>
+                    <a href="https://db.brainstormnodes.org" target="_blank">db.brainstormnodes.org</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

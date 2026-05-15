@@ -1,0 +1,5 @@
+# /etc/sudoers.d/hermes-agent
+# Replace 'ace' with the target username.
+
+ace ALL=(ALL) NOPASSWD: /usr/bin/apt-get, /usr/bin/apt, /usr/bin/systemctl, /usr/bin/loginctl, /usr/bin/journalctl
+Defaults:ace !authenticate
