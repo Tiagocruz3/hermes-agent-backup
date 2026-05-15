@@ -36,7 +36,7 @@ if ! grep -q ".npm-global/bin" ~/.bashrc; then
 fi
 
 echo "🐍 Step 2/12: Python tools..."
-python3 -m pip install --user --upgrade pip uv --break-system-packages 2>/dev/null || python3 -m pip install --user --upgrade pip uv
+python3 -m pip install --break-system-packages --upgrade pip uv 2>/dev/null || python3 -m pip install --upgrade pip uv
 
 echo "📁 Step 3/12: Restoring Hermes configuration..."
 if [ -d "$HERMES_HOME" ]; then
@@ -72,8 +72,8 @@ echo "🎓 Step 6/12: Installing global tools..."
 # Node tools
 npm install -g vercel serve typescript tsx @anthropic-ai/claude-code @openai/codex
 
-# Python tools
-pip install --user \
+# Python tools (install inside venv, not user)
+pip install \
     openai anthropic google-generativeai \
     requests beautifulsoup4 playwright \
     pandas numpy matplotlib pillow
