@@ -1,0 +1,19 @@
+{
+  "name": "jarvis-proxy",
+  "version": "2.0.0",
+  "description": "J.A.R.V.I.S. API proxy for Hermes integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
