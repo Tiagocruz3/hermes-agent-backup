@@ -36,7 +36,7 @@ if ! grep -q ".npm-global/bin" ~/.bashrc; then
 fi
 
 echo "🐍 Step 2/12: Python tools..."
-python3 -m pip install --user --upgrade pip uv
+python3 -m pip install --user --upgrade pip uv --break-system-packages 2>/dev/null || python3 -m pip install --user --upgrade pip uv
 
 echo "📁 Step 3/12: Restoring Hermes configuration..."
 if [ -d "$HERMES_HOME" ]; then
