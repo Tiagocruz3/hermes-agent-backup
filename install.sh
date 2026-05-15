@@ -24,6 +24,9 @@ sudo apt-get install -y git curl wget python3 python3-pip python3-venv \
     libnss3 libatk-bridge2.0-0 libxss1 libgtk-3-0 libasound2 \
     libxtst6 libappindicator3-1 systemd dbus-user-session
 
+echo "📦 Step 1b: Installing pnpm..."
+npm install -g pnpm
+
 echo "🐍 Step 2/12: Python tools..."
 python3 -m pip install --user --upgrade pip uv
 
