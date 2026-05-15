@@ -25,7 +25,15 @@ sudo apt-get install -y git curl wget python3 python3-pip python3-venv \
     libxtst6 libappindicator3-1 systemd dbus-user-session || true
 
 echo "📦 Step 1b: Installing pnpm..."
+mkdir -p ~/.npm-global
+npm config set prefix '~/.npm-global'
+export PATH=~/.npm-global/bin:$PATH
 npm install -g pnpm
+
+# Add to bashrc for future sessions
+if ! grep -q ".npm-global/bin" ~/.bashrc; then
+    echo 'export PATH="$HOME/.npm-global/bin:$PATH"' >> ~/.bashrc
+fi
 
 echo "🐍 Step 2/12: Python tools..."
 python3 -m pip install --user --upgrade pip uv
